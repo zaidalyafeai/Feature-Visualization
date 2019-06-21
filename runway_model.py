@@ -30,7 +30,7 @@ def convert(model, inputs):
     print('The current latents ', latents)
     output = render.render_vis(model, "mixed4a_pre_relu:"+str(latents), param_f, thresholds=(100,),)
     image = output[0].squeeze() * 255
-    print('The time is ', start - time.time())
+    print('The time is ', time.time() - start)
     return {'image': image.astype('uint8')}
 
 

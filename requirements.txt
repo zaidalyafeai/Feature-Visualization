@@ -1,3 +1,4 @@
 lucid==0.0.5
 runway-python
 numpy
+tensorflow-gpu
