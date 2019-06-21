@@ -25,8 +25,8 @@ generate_inputs = {
 
 @runway.command('generate', inputs=generate_inputs, outputs={'image': runway.image})
 def convert(model, inputs):
-    latents = int(np.clip(inputs['z'][0] * 1000), 0, 507)
-    param_f = lambda: param.image(256, decorrelate=True)
+    latents = int(np.clip(inputs['z'][0] * 1000, 0, 507))
+    param_f = lambda: param.image(512, decorrelate=True)
     print('The current latents ', latents)
     output = render.render_vis(model, "mixed4a_pre_relu:"+str(latents), param_f, thresholds=(256,),)
     image = output[0].squeeze() * 255
