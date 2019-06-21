@@ -7,7 +7,6 @@ import lucid.optvis.objectives as objectives
 import lucid.optvis.param as param
 import lucid.optvis.render as render
 import lucid.optvis.transform as transform
-
 import time
 import runway
 
@@ -25,7 +24,7 @@ generate_inputs = {
 
 @runway.command('generate', inputs=generate_inputs, outputs={'image': runway.image})
 def convert(model, inputs):
-    latents = int(np.clip(inputs['z'][0] * 1000, 0, 507))
+    latents = int(np.clip(np.float(inputs['z']) * 1000, 0, 507))
     param_f = lambda: param.image(512, decorrelate=True)
     print('The current latents ', latents)
     output = render.render_vis(model, "mixed4a_pre_relu:"+str(latents), param_f, thresholds=(256,),)
