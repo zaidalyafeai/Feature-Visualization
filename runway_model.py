@@ -30,8 +30,7 @@ def convert(model, inputs):
     start = time.time()
 
     #set up parameters
-    #neuron = int(np.clip(np.float(inputs['z']) * 1000, 0, 507))
-    neuron = random.randint(0, 506)
+    neuron = int(np.clip(np.float(inputs['z']) * 1000, 0, 507))
     steps = int(inputs['steps'])
 
     #start rendering the images
