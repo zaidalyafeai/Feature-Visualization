@@ -1,4 +1,4 @@
-lucid==0.0.5
+lucid
 runway-python
 numpy
 tensorflow-gpu
