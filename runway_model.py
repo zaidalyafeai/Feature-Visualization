@@ -10,8 +10,6 @@ import lucid.optvis.param as param
 import lucid.optvis.render as render
 import lucid.optvis.transform as transform
 import time
-import tensorflow as tf
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 import runway
 import random
 
