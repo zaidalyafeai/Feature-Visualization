@@ -28,7 +28,7 @@ def convert(model, inputs):
     latents = int(np.abs(inputs['z'] * 1000)[0])
     param_f = lambda: param.image(512, decorrelate=True)
     print('The current latents ', latents)
-    output = render.render_vis(model, "mixed4a_pre_relu:"+str(latents), param_f, thresholds=(100,),)
+    output = render.render_vis(model, "mixed4a_pre_relu:"+str(latents), param_f, thresholds=(200,),)
     image = output[0].squeeze() * 255
     print('The time is ', time.time() - start)
     return {'image': image.astype('uint8')}
