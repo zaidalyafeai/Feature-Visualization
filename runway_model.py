@@ -35,7 +35,7 @@ def convert(model, inputs):
 
     #set up parameters
     layer = inputs['layer']
-    neuron = int(np.clip(np.float(inputs['z']) * 1000, 0, num_neurons[layer]))
+    neuron = int(np.clip(np.abs(np.float(inputs['z'])) * 1000, 0, num_neurons[layer]))
     steps = int(inputs['steps'])
     
 
