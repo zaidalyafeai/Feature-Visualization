@@ -29,7 +29,7 @@ generate_inputs = {
 
 @runway.command('generate', inputs=generate_inputs, outputs={'image': runway.image})
 def convert(model, inputs):
-
+    print(inputs['z'])
     num_neurons = {'mixed3a':255, 'mixed4a':507, 'mixed5a':831}
     start = time.time()
 
