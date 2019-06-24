@@ -23,7 +23,7 @@ def setup(opts):
 generate_inputs = {
     'z': runway.vector(length=1, sampling_std=0.5),
     'layer': runway.category(choices=["mixed3a", "mixed4a", "mixed5a"]
-    , default="mixed4a"),
+    , default="Mixed4a"),
     'steps': runway.number(min=64, max=512, step=10, default=128)
 }
 
