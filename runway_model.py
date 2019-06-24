@@ -22,7 +22,7 @@ def setup(opts):
 
 generate_inputs = {
     'z': runway.vector(length=1, sampling_std=0.5),
-    'layer': runway.category(choices=["mixed3a", "mixed4a", "mixed5a"]
+    'layer': runway.category(choices=["Mixed3a", "Mixed4a", "Mixed5a"]
     , default="Mixed4a"),
     'steps': runway.number(min=64, max=512, step=10, default=128)
 }
@@ -30,11 +30,12 @@ generate_inputs = {
 @runway.command('generate', inputs=generate_inputs, outputs={'image': runway.image})
 def convert(model, inputs):
     print(inputs['z'])
+    print(inputs['layer'])
     num_neurons = {'mixed3a':255, 'mixed4a':507, 'mixed5a':831}
     start = time.time()
 
     #set up parameters
-    layer = inputs['layer']
+    layer = inputs['layer'].lower()
     neuron = int(np.clip(np.abs(np.float(inputs['z'])) * 1000, 0, num_neurons[layer]))
     steps = int(inputs['steps'])
     
